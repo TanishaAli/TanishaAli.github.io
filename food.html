@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #232323;
+}
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #aaaaaa;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+
+.price {
+  float: right;
+}
+ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      text-align: center
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<ul>
+      <li><button onclick=appetizers()>Appetizers</button></li>
+      <li><button onclick=entrees()>Entrees</button></li>
+      <li><button onclick=desserts()>Desserts</button></li>
+    </ul>
+
+
+<h1>"SOON FAT"</h1>
+<h2>'We Listen To The Food'</h2>
+
+<div id="anything">
+</div>
+
+<script>
+appetizerImages = [
+  'url("https://www.tasteofhome.com/wp-content/uploads/2018/03/Marinated-Cheese_EXPS_THCA18_41873_B01_23_3b-2-696x696.jpg")',
+  'url("https://www.skinnytaste.com/wp-content/uploads/2017/02/Asian-Turkey-Meatballs-with-Gochujang-Glaze-1-5.jpg")',
+  'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHV9HzxXljua9LPDSd7qY-rhYhWq3vB5mdqKpHLZA8Oj6FVG2J7g")',
+  'url("https://food.fnr.sndimg.com/content/dam/images/food/fullset/2008/9/8/1/smallbites_spanishtortilla.jpg.rend.hgtvcom.616.462.suffix/1461594171836.jpeg")',
+  'url("https://julieseatsandtreats.com/wp-content/uploads/2015/11/Light-Tex-Mex-Shrimp-Bites-Pan.jpg")',
+]
+
+entreesImages = [
+  'url("https://www.beefobradys.com/images/entrees-grilled-shrimp.jpg")',
+  'url("https://thenoshery.com/wp-content/uploads/2015/01/Pastelon_-9-1-720x540.jpg")',
+  'url("https://www.mrsdash.com/sites/default/files/entree-hot.jpg")',
+  'url("http://olivedestination.com/wp/wp-content/uploads/2013/09/zesty-shrimp-pasta1.jpg")',
+  'url("https://la-mesa.com/wp-content/uploads/2016/10/la-mesa-mexican-restaurant-entrees-enchiladas-suizas.jpg")',
+  ]
+  
+  dessertsImages = [
+    'url("https://assetcloud02.roccommerce.net/_rastelli/8/7/1/desserts-department-large.jpg")',
+    'url("https://i.dietdoctor.com/wp-content/uploads/2018/07/DD_LC_Desserts_feature.jpg?auto=compress%2Cformat&w=1600&h=900&fit=crop")',
+    'url("https://cook.fnr.sndimg.com/content/dam/images/cook/fullset/2012/6/29/0/CC_Frozen-Peanut-Butter-Pie-Pops-Recipe-1_s4x3.jpg.rend.hgtvcom.966.725.suffix/1351632070742.jpeg")',
+    'url("https://butterballblog.files.wordpress.com/2011/11/cake-pops.jpg")',
+    'url("https://s-i.huffpost.com/gen/1963232/images/n-VEGAN-DESSERTS-628x314.jpg")',
+    ]
+  
+  appetizerDivs = [
+    '<div class="item"><p>Cheese Crackers <span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+    '<div class="item"><p>Meat Popsticles <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+    '<div class="item"><p>Chinese Wontons <span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>',
+ 
+  
+  ]
+  
+entreesDivs = [
+  '<div class="item"><p>Lemonish Shrimp FriedRice <span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+    '<div class="item"><p>Lasagne <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+    '<div class="item"><p>Chicken steak <span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>',
+  
+  
+  ]
+  
+  dessertsDivs = [
+    '<div class="item"><p>Melted Chocolate Fudge Cake <span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+    '<div class="item"><p>Moose Favored Icecream <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+    '<div class="item"><p>Five Layers Stick Icecream <span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>',
+  ]
+  
+function appetizers() {
+  food = document.getElementById("anything")
+  food.innerHTML = ''
+  food.innerHTML += appetizerDivs[0]
+  food.innerHTML += appetizerDivs[1]
+  food.innerHTML += appetizerDivs[2]
+	//alert("appetizers")
+	items = document.getElementsByClassName("item") 
+	items[0].style.background = appetizerImages[0]
+	items[0].style.backgroundSize = '100% 100%'
+	items[1].style.background = appetizerImages[1]
+	items[1].style.backgroundSize = '100% 100%'
+	items[2].style.background = appetizerImages[2]
+	items[2].style.backgroundSize = '100% 100%'
+} 
+
+function entrees() {
+  food = document.getElementById("anything")
+  food.innerHTML = ''
+  food.innerHTML += entreesDivs[0]
+  food.innerHTML += entreesDivs[1]
+  food.innerHTML += entreesDivs[2]
+	//alert("entrees")
+	items = document.getElementsByClassName("item") 
+	items[0].style.background = entreesImages[0]
+	items[0].style.backgroundSize = '100% 100%'
+	items[1].style.background = entreesImages[1]
+	items[1].style.backgroundSize = '100% 100%'
+	items[2].style.background = entreesImages[2]
+	items[2].style.backgroundSize = '100% 100%'
+}
+
+function desserts() {
+	//alert("desserts")
+	food = document.getElementById("anything")
+  food.innerHTML = ''
+  food.innerHTML += dessertsDivs[0]
+  food.innerHTML += dessertsDivs[1]
+  food.innerHTML += dessertsDivs[2]
+	items = document.getElementsByClassName("item") 
+	items[0].style.background = dessertsImages[0]
+	items[0].style.backgroundSize = '100% 100%'
+	items[1].style.background = dessertsImages[1]
+	items[1].style.backgroundSize = '100% 100%'
+	items[2].style.background = dessertsImages[2]
+	items[2].style.backgroundSize = '100% 100%'
+	
+} 
+
+
+
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
