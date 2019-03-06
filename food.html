@@ -138,25 +138,25 @@ entreesImages = [
     ]
   
   appetizerDivs = [
-    '<div class="item"><p>Cheese Crackers <span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
-    '<div class="item"><p>Meat Popsticles <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
-    '<div class="item"><p>Chinese Wontons <span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Cheese Crackers <span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Meat Popsticles <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Chinese Wontons <span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>',
  
   
   ]
   
 entreesDivs = [
-  '<div class="item"><p>Lemonish Shrimp FriedRice <span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
-    '<div class="item"><p>Lasagne <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
-    '<div class="item"><p>Chicken steak <span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Lemonish Shrimp FriedRice <span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Lasagne <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Chicken steak <span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>',
   
   
   ]
   
   dessertsDivs = [
-    '<div class="item"><p>Melted Chocolate Fudge Cake <span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
-    '<div class="item"><p>Moose Favored Icecream <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
-    '<div class="item"><p>Five Layers Stick Icecream <span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Melted Chocolate Fudge Cake <span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Moose Favored Icecream <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Five Layers Stick Icecream <span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>',
   ]
   
 function appetizers() {
@@ -211,9 +211,7 @@ function desserts() {
 
 
 
-  $('div').on('click', function() {
-      $(this).toggleClass('show-description');
-  });
+
 </script>
 
 </body>
